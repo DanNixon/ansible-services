@@ -1,0 +1,32 @@
+#!/bin/bash
+# Copyright (c) 2021 Dan Nixon
+# SPDX-License-Identifier: MIT
+
+config_file='/etc/git_mirror_conf.json'
+
+while IFS= read -r config;
+do
+  config_directory="$(echo "$config" | jq -r '.directory')"
+  config_directory="${config_directory%/}"
+  mkdir -p "$config_directory"
+
+  while IFS= read -r repo;
+  do
+    repo_url="$(echo "$repo" | jq -r '.url')"
+    repo_directory="$config_directory/$(echo "$repo" | jq -r '.name').git"
+
+    echo "REPO: $repo_url > $repo_directory"
+    if [ -d "$repo_directory" ];
+    then
+      git -C "$repo_directory" remote update
+    else
+      GIT_TERMINAL_PROMPT=0 git clone --mirror "$repo_url" "$repo_directory"
+    fi
+    result=$?
+
+    if [ $result -ne 0 ];
+    then
+      echo "FAIL: $result"
+    fi
+  done< <(echo "$config" | jq -rc '.repositories[]')
+done< <(jq -rc < "$config_file" '.[]')

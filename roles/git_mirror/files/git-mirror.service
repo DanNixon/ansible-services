@@ -1,0 +1,8 @@
+[Unit]
+Description=Update Git mirrors
+
+[Service]
+Type=oneshot
+User=git-mirror
+Group=git-mirror
+ExecStart=/usr/bin/git-mirror

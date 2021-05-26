@@ -1,0 +1,9 @@
+[Unit]
+Description=Update Git mirrors
+
+[Timer]
+OnCalendar={{ git_mirror_update_interval }}
+Persistent=true
+
+[Install]
+WantedBy=timers.target

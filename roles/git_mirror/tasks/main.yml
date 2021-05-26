@@ -1,0 +1,60 @@
+---
+- name: Ensure Git is installed
+  become: true
+  ansible.builtin.package:
+    name: git
+    state: present
+
+- name: Ensure mirror user exists
+  become: true
+  ansible.builtin.user:
+    name: git-mirror
+    password: "!"
+    shell: /usr/bin/nologin
+    update_password: always
+    state: present
+
+- name: Ensure mirroring tool is present
+  become: true
+  ansible.builtin.copy:
+    src: git-mirror
+    dest: /usr/bin
+    mode: "u=rx,g=rx,o=rx"
+
+- name: Ensure systemd service is present
+  become: true
+  ansible.builtin.copy:
+    src: git-mirror.service
+    dest: /usr/lib/systemd/system/
+    mode: "u=rw,g=rw,o=r"
+
+- name: Ensure systemd timer is present
+  become: true
+  ansible.builtin.template:
+    src: git-mirror.timer
+    dest: /usr/lib/systemd/system/
+    mode: "u=rw,g=rw,o=r"
+
+- name: Ensure configuration is present
+  become: true
+  ansible.builtin.copy:
+    content: "{{ git_mirror_config | to_nice_json }}"
+    dest: /etc/git_mirror_conf.json
+    mode: "u=r,g=r,o=r"
+
+- name: Ensure the data directories exists
+  become: true
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: git-mirror
+    group: git-mirror
+    mode: "u=rwx,g=rwx,o=rx"
+  loop: "{{ git_mirror_config | map(attribute='directory') | list }}"
+
+- name: Ensure timer is enabled
+  become: yes
+  ansible.builtin.service:
+    name: git-mirror.timer
+    enabled: true
+    state: started
