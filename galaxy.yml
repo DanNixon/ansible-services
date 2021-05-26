@@ -1,0 +1,17 @@
+---
+namespace: dannixon
+name: services
+
+version: 0.0.1
+
+readme: readme.md
+
+authors:
+  - Dan Nixon <dan@dan-nixon.com>
+
+description: Services deployment and configurations
+
+license: MIT
+
+repository: https://github.com/DanNixon/ansible-system
+issues: https://github.com/DanNixon/ansible-system/issues

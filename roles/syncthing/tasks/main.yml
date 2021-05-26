@@ -1,0 +1,20 @@
+---
+- name: Perform platform specific tasks
+  include_tasks: "{{ item }}"
+  with_first_found:
+    - files: "install_{{ ansible_distribution }}.yml"
+      skip: true
+
+- name: Ensure Syncthing is installed
+  become: true
+  package:
+    name: syncthing
+    state: present
+
+- name: Ensure the Syncthing service is enabled and running for the target user
+  become: true
+  service:
+    name: "syncthing@{{ ansible_user_id }}"
+    state: started
+    enabled: true
+  when: syncthing_service | bool
