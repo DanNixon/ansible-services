@@ -1,0 +1,27 @@
+---
+dependency:
+  name: galaxy
+
+driver:
+  name: podman
+
+platforms:
+  - name: archlinux
+    image: arch
+    dockerfile: Dockerfile.archlinux
+    pre_build_image: false
+
+  - name: ubuntu
+    image: ubuntu
+    dockerfile: Dockerfile.ubuntu
+    pre_build_image: false
+
+lint: |
+  set -ex
+  ansible-lint
+
+provisioner:
+  name: ansible
+
+verifier:
+  name: testinfra

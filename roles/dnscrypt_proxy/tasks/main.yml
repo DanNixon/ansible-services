@@ -24,13 +24,18 @@
     name: dnscrypt-proxy
     state: started
     enabled: true
+  tags:
+    - molecule-notest
 
 - name: Ensure system resolver is configured
   become: true
   copy:
     src: resolv.conf
     dest: /etc/resolv.conf
+    mode: "u=rw,g=r,o=r"
     attributes: +i
+  tags:
+    - molecule-notest
 
 - name: Ensure helper scripts are present
   become: true
