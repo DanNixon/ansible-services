@@ -1,4 +1,10 @@
 ---
+- name: Perform platform specific tasks
+  include_tasks: "{{ item }}"
+  with_first_found:
+    - files: "install_{{ ansible_distribution }}.yml"
+      skip: true
+
 - name: Ensure SSH password authentication is disabled
   become: true
   lineinfile:
@@ -14,3 +20,5 @@
     name: sshd
     state: started
     enabled: true
+  tags:
+    - molecule-notest
