@@ -1,0 +1,10 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    git_server_ssh_pubkeys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGYeGwrBRv6i1qIpBv/E90aqOe2Iound9O5JG41St306 fakeuser
+
+  roles:
+    - git_server
