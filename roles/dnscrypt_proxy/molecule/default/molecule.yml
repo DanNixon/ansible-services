@@ -7,13 +7,11 @@ driver:
 
 platforms:
   - name: archlinux
-    image: arch
-    dockerfile: Dockerfile.archlinux
+    image: archlinux
     pre_build_image: false
 
   - name: ubuntu
     image: ubuntu
-    dockerfile: Dockerfile.ubuntu
     pre_build_image: false
 
 lint: |
