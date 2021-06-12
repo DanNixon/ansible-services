@@ -26,3 +26,5 @@
     scope: "{{ mpd_service_scope }}"
     enabled: true
     state: started
+  tags:
+    - molecule-notest

@@ -1,0 +1,14 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    mpd_config:
+      music_directory: /media/music
+
+    mpd_audio_outputs:
+      - type: pulse
+        name: local
+
+  roles:
+    - mpd

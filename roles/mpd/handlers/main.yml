@@ -4,3 +4,4 @@
     name: mpd
     scope: "{{ mpd_service_scope }}"
     state: restarted
+  when: molecule_yml is not defined
