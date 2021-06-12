@@ -18,3 +18,5 @@
     state: started
     enabled: true
   when: syncthing_service | bool
+  tags:
+    - molecule-notest
