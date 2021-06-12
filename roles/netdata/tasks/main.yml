@@ -1,8 +1,9 @@
 ---
-- name: Pre installation steps
+- name: Perform platform specific tasks
   include_tasks: "{{ item }}"
   with_first_found:
     - files: "install_{{ ansible_distribution }}.yml"
+      skip: true
 
 - name: Ensure Netdata is installed
   become: true
@@ -16,3 +17,5 @@
     name: netdata
     state: started
     enabled: true
+  tags:
+    - molecule-notest
