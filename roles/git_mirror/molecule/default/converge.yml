@@ -1,0 +1,13 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    git_mirror_config:
+      - directory: /var/srv/git/mirrors
+        repositories:
+          - name: ansible-services
+            url: https://github.com/DanNixon/ansible-services.git
+
+  roles:
+    - git_mirror

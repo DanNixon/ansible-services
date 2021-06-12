@@ -53,8 +53,10 @@
   loop: "{{ git_mirror_config | map(attribute='directory') | list }}"
 
 - name: Ensure timer is enabled
-  become: yes
+  become: true
   ansible.builtin.service:
     name: git-mirror.timer
     enabled: true
     state: started
+  tags:
+    - molecule-notest
