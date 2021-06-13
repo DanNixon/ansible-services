@@ -1,5 +1,5 @@
 ---
-name: "dannixon.system.sshd"
+name: "dannixon.services.sshd"
 
 on:
   push:

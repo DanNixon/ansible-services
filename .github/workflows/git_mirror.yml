@@ -1,5 +1,5 @@
 ---
-name: "dannixon.system.git_mirror"
+name: "dannixon.services.git_mirror"
 
 on:
   push:

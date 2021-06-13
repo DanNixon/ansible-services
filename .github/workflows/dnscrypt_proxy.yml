@@ -1,5 +1,5 @@
 ---
-name: "dannixon.system.dnscrypt_proxy"
+name: "dannixon.services.dnscrypt_proxy"
 
 on:
   push:

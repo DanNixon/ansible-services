@@ -1,6 +1,6 @@
-# `dannixon.system.sshd`
+# `dannixon.services.sshd`
 
-[![dannixon.system.sshd](https://github.com/DanNixon/ansible-services/actions/workflows/sshd.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/sshd.yml)
+[![dannixon.services.sshd](https://github.com/DanNixon/ansible-services/actions/workflows/sshd.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/sshd.yml)
 
 Installs [OpenSSH](https://www.openssh.com/) server with some very basic configuration.
 
@@ -11,7 +11,7 @@ Installs [OpenSSH](https://www.openssh.com/) server with some very basic configu
   become: true
 
   roles:
-    - dannixon.system.sshd
+    - dannixon.services.sshd
 ```
 
 ## License

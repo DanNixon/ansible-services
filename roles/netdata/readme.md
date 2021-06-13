@@ -1,6 +1,6 @@
-# `dannixon.system.netdata`
+# `dannixon.services.netdata`
 
-[![dannixon.system.netdata](https://github.com/DanNixon/ansible-services/actions/workflows/netdata.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/netdata.yml)
+[![dannixon.services.netdata](https://github.com/DanNixon/ansible-services/actions/workflows/netdata.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/netdata.yml)
 
 Installs [Netdata](https://www.netdata.cloud/).
 
@@ -11,7 +11,7 @@ Installs [Netdata](https://www.netdata.cloud/).
   become: true
 
   roles:
-    - dannixon.system.netdata
+    - dannixon.services.netdata
 ```
 
 ## License

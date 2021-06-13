@@ -2,7 +2,7 @@
 namespace: dannixon
 name: services
 
-version: 0.0.4
+version: 0.0.5
 
 readme: readme.md
 
@@ -13,5 +13,5 @@ description: Services deployment and configurations
 
 license: MIT
 
-repository: https://github.com/DanNixon/ansible-system
-issues: https://github.com/DanNixon/ansible-system/issues
+repository: https://github.com/DanNixon/ansible-services
+issues: https://github.com/DanNixon/ansible-services/issues

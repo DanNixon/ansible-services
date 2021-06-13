@@ -1,5 +1,5 @@
 ---
-name: "dannixon.system.git_server"
+name: "dannixon.services.git_server"
 
 on:
   push:

@@ -1,6 +1,6 @@
-# `dannixon.system.syncthing`
+# `dannixon.services.syncthing`
 
-[![dannixon.system.syncthing](https://github.com/DanNixon/ansible-services/actions/workflows/syncthing.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/syncthing.yml)
+[![dannixon.services.syncthing](https://github.com/DanNixon/ansible-services/actions/workflows/syncthing.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/syncthing.yml)
 
 Installs [Syncthing](https://syncthing.net/).
 
@@ -15,7 +15,7 @@ Installs [Syncthing](https://syncthing.net/).
   become: true
 
   roles:
-    - dannixon.system.syncthing
+    - dannixon.services.syncthing
 ```
 
 ## License

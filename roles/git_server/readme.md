@@ -1,6 +1,6 @@
-# `dannixon.system.git_server`
+# `dannixon.services.git_server`
 
-[![dannixon.system.git_server](https://github.com/DanNixon/ansible-services/actions/workflows/git_server.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/git_server.yml)
+[![dannixon.services.git_server](https://github.com/DanNixon/ansible-services/actions/workflows/git_server.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/git_server.yml)
 
 Configures a basic Git server with SSH access following the principle described [here](https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server).
 
@@ -21,7 +21,7 @@ The list of public SSH keys for users are provided via `git_server_ssh_pubkeys`.
       - ssh-rsa ... user
 
   roles:
-    - dannixon.system.git_server
+    - dannixon.services.git_server
 ```
 
 ## License

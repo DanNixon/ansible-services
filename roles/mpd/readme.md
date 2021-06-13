@@ -1,6 +1,6 @@
-# `dannixon.system.mpd`
+# `dannixon.services.mpd`
 
-[![dannixon.system.mpd](https://github.com/DanNixon/ansible-services/actions/workflows/mpd.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/mpd.yml)
+[![dannixon.services.mpd](https://github.com/DanNixon/ansible-services/actions/workflows/mpd.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/mpd.yml)
 
 Installs and configures [Music Player Daemon (MPD)](https://www.musicpd.org/).
 
@@ -29,7 +29,7 @@ Parameter names and expected values are the same as `mpd.conf` (see `man 5 mpd.c
         name: local
 
   roles:
-    - dannixon.system.mpd
+    - dannixon.services.mpd
 ```
 
 ## License
