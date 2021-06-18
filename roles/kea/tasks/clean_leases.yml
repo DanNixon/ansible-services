@@ -1,0 +1,16 @@
+---
+- name: Remove existing IPv4 leases
+  become: true
+  file:
+    path: /var/lib/kea/kea-leases4.csv
+    state: absent
+  notify:
+    - Restart Kea DHCP4
+
+- name: Remove existing IPv6 leases
+  become: true
+  file:
+    path: /var/lib/kea/kea-leases6.csv
+    state: absent
+  notify:
+    - Restart Kea DHCP6

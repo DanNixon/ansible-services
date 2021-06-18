@@ -1,0 +1,31 @@
+---
+- name: Ensure Kea is installed
+  become: true
+  package:
+    name: kea
+    state: present
+
+- name: Clean leases
+  import_tasks: clean_leases.yml
+  when: kea_clean_leases
+
+- name: DHCP4 configuration
+  import_tasks: service.yml
+  vars:
+    service: kea-dhcp4
+    enabled: "{{ kea_dhcp4_enable }}"
+    config: "{{ kea_dhcp4_config_full }}"
+
+- name: DHCP6 configuration
+  import_tasks: service.yml
+  vars:
+    service: kea-dhcp6
+    enabled: "{{ kea_dhcp6_enable }}"
+    config: "{{ kea_dhcp6_config_full }}"
+
+- name: DDNS configuration
+  import_tasks: service.yml
+  vars:
+    service: kea-dhcp-ddns
+    enabled: "{{ kea_dhcp_ddns_enable }}"
+    config: "{{ kea_dhcp_ddns_config_full }}"

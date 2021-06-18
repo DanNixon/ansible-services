@@ -1,0 +1,21 @@
+---
+- name: Restart kea-dhcp4
+  become: true
+  service:
+    name: kea-dhcp4.service
+    state: restarted
+  when: kea_dhcp4_enable and molecule_yml is not defined
+
+- name: Restart kea-dhcp6
+  become: true
+  service:
+    name: kea-dhcp6.service
+    state: restarted
+  when: kea_dhcp6_enable and molecule_yml is not defined
+
+- name: Restart kea-dhcp-ddns
+  become: true
+  service:
+    name: kea-dhcp-ddns.service
+    state: restarted
+  when: kea_dhcp_ddns_enable and molecule_yml is not defined
