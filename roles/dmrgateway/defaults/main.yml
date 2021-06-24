@@ -1,0 +1,4 @@
+---
+dmrgateway_package: present
+
+dmrgateway_config: {}
