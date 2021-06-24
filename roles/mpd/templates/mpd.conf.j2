@@ -1,3 +1,5 @@
+{{ ansible_managed | comment }}
+
 {% for k, v in mpd_config.items() %}
 {{ k }} "{{ v }}"
 {% endfor %}
