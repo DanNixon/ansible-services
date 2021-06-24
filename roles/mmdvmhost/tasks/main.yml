@@ -1,0 +1,22 @@
+---
+- name: Ensure MMDVMHost is installed
+  become: true
+  become_user: aur_builder
+  ansible.legacy.aur:
+    name:
+      - mmdvmcal-git
+      - mmdvmhost-git
+    state: "{{ mmdvmhost_package }}"
+
+- name: Ensure systemd units are present
+  become: true
+  copy:
+    src: mmdvmhost@.service
+    dest: /usr/lib/systemd/system
+    mode: "u=rw,g=r,o=r"
+
+- name: Configure instances
+  include_tasks: instance.yml
+  loop: "{{ mmdvmhost_configs }}"
+  loop_control:
+    loop_var: config

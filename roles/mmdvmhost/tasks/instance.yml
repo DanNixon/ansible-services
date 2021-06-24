@@ -1,0 +1,16 @@
+---
+- name: "Ensure {{ config.name }} config is present"
+  become: true
+  template:
+    src: mmdvmhost.ini
+    dest: "/etc/mmdvmhost-{{ config.name }}.ini"
+    mode: "u=r,g=r,o="
+
+- name: "Ensure service is running for {{ config.name }}"
+  become: true
+  service:
+    name: "mmdvmhost@{{ config.name }}"
+    enabled: true
+    state: restarted
+  tags:
+    - molecule-notest
