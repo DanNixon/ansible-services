@@ -1,0 +1,32 @@
+---
+- name: Ensure DAPNETGateway is installed
+  become: true
+  become_user: aur_builder
+  ansible.legacy.aur:
+    name: dapnetgateway-git
+    state: "{{ dapnetgateway_package }}"
+
+- name: Ensure systemd units are present
+  become: true
+  copy:
+    src: dapnetgateway.service
+    dest: /usr/lib/systemd/system
+    mode: "u=rw,g=r,o=r"
+
+- name: Ensure config is present
+  become: true
+  template:
+    src: dapnetgateway.ini
+    dest: /etc/
+    mode: "u=r,g=r,o="
+  notify:
+    - Restart DAPNETGateway
+
+- name: Ensure service is running
+  become: true
+  service:
+    name: dapnetgateway
+    enabled: true
+    state: started
+  tags:
+    - molecule-notest
