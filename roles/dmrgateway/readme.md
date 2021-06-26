@@ -28,6 +28,12 @@ Note that the value of `dmrgateway_config` does not form a functional configurat
         Location: Somewhere
       DMR Networl 1:
         Name: BrandMeister IE
+        PassAllTG:
+          - 1
+          - 2
+        PassAllPC:
+          - 1
+          - 2
 
   roles:
     - dannixon.services.dmrgateway
