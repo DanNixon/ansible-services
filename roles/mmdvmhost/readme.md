@@ -6,7 +6,7 @@ Installs and configures [MMDVMHost](https://github.com/g4klx/MMDVMHost).
 
 ## Role Variables
 
-`mmdvmhost_package` sets what should happen if the AUR pacakges are already installed.
+`mmdvmhost_package` sets what should happen if the AUR packages are already installed.
 It's options are as per the `state` parameter defined [here](https://github.com/kewlfft/ansible-aur#options).
 
 `mmdvmhost_configs` allows for definition of multiple MMDVMHost instances, this can be useful for running multiple modems on the same host.

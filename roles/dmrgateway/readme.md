@@ -6,7 +6,7 @@ Installs and configures [DMRGateway](https://github.com/g4klx/DMRGateway).
 
 ## Role Variables
 
-`dmrgateway_config` sets what should happen if the AUR pacakges are already installed.
+`dmrgateway_config` sets what should happen if the AUR packages are already installed.
 It's options are as per the `state` parameter defined [here](https://github.com/kewlfft/ansible-aur#options).
 
 `dmrgateway_config` is the dictionary encoding of the (undocumented) INI configuration file.

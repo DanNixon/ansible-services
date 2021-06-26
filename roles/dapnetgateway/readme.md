@@ -6,7 +6,7 @@ Installs and configures [DAPNETGateway](https://github.com/g4klx/DAPNETGateway).
 
 ## Role Variables
 
-`dapnetgateway_package` sets what should happen if the AUR pacakges are already installed.
+`dapnetgateway_package` sets what should happen if the AUR packages are already installed.
 It's options are as per the `state` parameter defined [here](https://github.com/kewlfft/ansible-aur#options).
 
 `dapnetgateway_config` is the dictionary encoding of the (undocumented) INI configuration file.
