@@ -2,6 +2,7 @@
 Description=Multi Mode Digital Voice Modem Host for %i
 
 [Service]
+ExecStartPre=/bin/sleep 10
 ExecStart=/usr/bin/MMDVMHost /etc/mmdvmhost-%i.ini
 
 [Install]
