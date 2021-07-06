@@ -2,5 +2,11 @@
 - name: Converge
   hosts: all
 
+  vars:
+    omada_controller_timezone: Europe/London
+    omada_controller_ssl:
+      key: /opt/key.pem
+      cert: /opt/cert.pem
+
   roles:
     - omada_controller

@@ -17,6 +17,9 @@ Installs TP-Link Omada SDN controller via Podman and [this Docker image](https:/
 
   vars:
     omada_controller_timezone: Europe/London
+    omada_controller_ssl:
+      key: /opt/key.pem
+      cert: /opt/cert.pem
 
   roles:
     - dannixon.services.omada_controller

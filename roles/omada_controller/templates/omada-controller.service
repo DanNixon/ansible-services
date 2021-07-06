@@ -48,6 +48,10 @@ ExecStart=/usr/bin/podman container run \
   --volume omada-data:/opt/tplink/EAPController/data \
   --volume omada-work:/opt/tplink/EAPController/work \
   --volume omada-logs:/opt/tplink/EAPController/logs \
+{% if omada_controller_ssl is defined %}
+  --volume {{ omada_controller_ssl.key }}:/cert/tls.key:ro \
+  --volume {{ omada_controller_ssl.cert }}:/cert/tls.crt:ro \
+{% endif %}
   docker.io/mbentley/omada-controller:{{ omada_controller_version }}
 
 ExecStop=/usr/bin/podman container stop \
