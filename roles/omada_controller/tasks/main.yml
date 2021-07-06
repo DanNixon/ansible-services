@@ -1,0 +1,34 @@
+---
+- name: Ensure a group for running Omada controller exists
+  become: true
+  group:
+    name: omada
+    state: present
+
+- name: Ensure a user for running Omada controller exists
+  become: true
+  user:
+    name: omada
+    group: omada
+    password: "!"
+    update_password: always
+    state: present
+
+- name: Ensure systemd unit is present
+  become: true
+  template:
+    src: omada-controller.service
+    dest: /usr/lib/systemd/system/
+    mode: "u=r,g=r,o=r"
+  notify:
+    - Reload systemd daemon
+    - Restart omada-controller
+
+- name: Ensure service is enabled and running
+  become: true
+  service:
+    name: omada-controller
+    enabled: true
+    state: started
+  tags:
+    - molecule-notest
