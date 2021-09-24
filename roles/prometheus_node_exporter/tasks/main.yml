@@ -1,0 +1,15 @@
+---
+- name: Ensure package is installed
+  become: true
+  package:
+    name: prometheus-node-exporter
+    state: present
+
+- name: Ensure service is enabled and running
+  become: true
+  service:
+    name: prometheus-node-exporter.service
+    enabled: true
+    state: started
+  tags:
+    - molecule-notest

@@ -1,0 +1,6 @@
+---
+- name: Converge
+  hosts: all
+
+  roles:
+    - dannixon.prometheus_node_exporter
