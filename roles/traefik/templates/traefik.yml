@@ -1,0 +1,9 @@
+---
+{{ ansible_managed | comment }}
+
+{{ traefik_static_config | to_nice_yaml }}
+
+providers:
+  file:
+    directory: /etc/traefik/dynamic
+    watch: true

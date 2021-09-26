@@ -1,0 +1,3 @@
+---
+traefik_static_config: {}
+traefik_dynamic_configs: []
