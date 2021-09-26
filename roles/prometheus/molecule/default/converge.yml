@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    prometheus_config:
+      global:
+        scrape_interval: 15s
+
+  roles:
+    - dannixon.prometheus

@@ -1,0 +1,4 @@
+---
+{{ ansible_managed | comment }}
+
+{{ prometheus_config | to_nice_yaml }}
