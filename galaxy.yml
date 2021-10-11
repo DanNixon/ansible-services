@@ -2,7 +2,7 @@
 namespace: dannixon
 name: services
 
-version: 0.0.15
+version: 0.0.16
 
 readme: readme.md
 
