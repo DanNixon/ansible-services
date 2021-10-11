@@ -1,0 +1,27 @@
+---
+bind_rndc_generate_key: true
+bind_rndc_key_path: /etc/rndc.key
+
+bind_include_files:
+  - "{{ bind_rndc_key_path }}"
+
+bind_log_channels:
+  - name: default
+    syslog: daemon
+    severity: debug
+    print-category: true
+    print-severity: true
+
+bind_log_categories:
+  - category: default
+    channels:
+      - default
+
+bind_acls: []
+
+bind_options: {}
+
+bind_views: []
+
+bind_update_zones: true
+bind_zones: []

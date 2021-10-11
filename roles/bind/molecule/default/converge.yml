@@ -1,0 +1,97 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    bind_acls:
+      - name: internal_allowlist
+        entries:
+          - localhost
+          - 10.1.10.0/24
+
+      - name: guest_allowlist
+        entries:
+          - 10.1.11.0/24
+
+    bind_options:
+      directory: /var/named
+      pid-file: /run/named/named.pid
+
+      listen-on:
+        - any
+      listen-on-v6:
+        - any
+
+      allow-query:
+        - internal_allowlist
+        - guest_allowlist
+      allow-query-cache:
+        - internal_allowlist
+        - guest_allowlist
+      allow-recursion:
+        - internal_allowlist
+        - guest_allowlist
+      allow-transfer:
+        - none
+      allow-update:
+        - none
+
+      querylog: true
+
+      version: none
+      hostname: none
+      server-id: none
+
+    bind_views:
+      - name: internal
+        match_clients:
+          - internal_allowlist
+        zones:
+          - name: internal_fwd
+            type: primary
+            file: internal_fwd.zone
+            allow-update:
+              - key rndc-key
+
+      - name: guest
+        match_clients:
+          - guest_allowlist
+        zones:
+          - name: guest_fwd
+            type: primary
+            file: guest_fwd.zone
+            allow-update:
+              - key rndc-key
+
+    bind_zones:
+      - filename: internal_fwd.zone
+        soa:
+          domain: internal.example.com.
+        origin: internal.example.com.
+        records:
+          - type: A
+            record: 10.1.10.1
+          - type: NS
+            record: ns
+          - name: ns
+            type: A
+            record: 10.1.10.1
+          - name: somehost
+            type: A
+            record: 10.1.10.20
+
+      - filename: guest_fwd.zone
+        soa:
+          domain: guest.example.com.
+        origin: guest.example.com.
+        records:
+          - type: A
+            record: 10.1.11.1
+          - type: NS
+            record: ns
+          - name: ns
+            type: A
+            record: 10.1.11.1
+
+  roles:
+    - dannixon.bind

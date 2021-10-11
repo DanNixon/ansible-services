@@ -1,0 +1,46 @@
+---
+- name: Ensure Bind is installed
+  become: true
+  package:
+    name: bind
+    state: present
+
+- name: Configure rndc
+  include_tasks: rndc_confgen.yml
+  when: bind_rndc_generate_key
+
+- name: Ensure configuration is present
+  become: true
+  template:
+    src: named.conf.j2
+    dest: /etc/named.conf
+    mode: "u=r,g=r,o=r"
+    validate: named-checkconf %s
+  notify:
+    - Restart Bind
+
+- name: Stop bind before zones and journals are modified
+  become: true
+  service:
+    name: named
+    state: stopped
+  when: bind_update_zones | bool
+  tags:
+    - molecule-notest
+
+- name: Ensure zones are configured
+  include_tasks: zone.yml
+  loop: "{{ bind_zones }}"
+  loop_control:
+    loop_var: zone
+    label: "{{ zone.filename }} for zone {{ zone.origin }}"
+  when: bind_update_zones | bool
+
+- name: Ensure service is enabled and running
+  become: true
+  service:
+    name: named.service
+    enabled: true
+    state: started
+  tags:
+    - molecule-notest

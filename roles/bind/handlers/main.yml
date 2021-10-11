@@ -1,0 +1,7 @@
+---
+- name: Restart Bind
+  become: true
+  service:
+    name: named.service
+    state: restarted
+  when: molecule_yml is not defined

@@ -1,0 +1,64 @@
+#jinja2: lstrip_blocks: True
+{{ ansible_managed | comment }}
+
+{% macro bind_config_render_value(value) %}
+{% if value is sequence and value is not string %}
+{
+{% for item in value %}
+  {{ bind_config_render_value(item) }};
+{% endfor %}
+}
+{%- elif value is boolean %}
+{{ value | ternary("yes", "no") }}
+{%- else %}
+{{ value }}
+{%- endif %}
+{% endmacro %}
+
+{% macro bind_config_block(config) %}
+{% for item in config | default([]) %}
+{% if item.key in ["directory", "file", "pid-file"] %}
+{{ item.key }} "{{ bind_config_render_value(item.value) }}";
+{% else %}
+{{ item.key }} {{ bind_config_render_value(item.value) }};
+{% endif %}
+{% endfor %}
+{% endmacro %}
+
+{% for path in bind_include_files %}
+include "{{ path }}";
+{% endfor %}
+
+logging {
+{% for channel in bind_log_channels | default([]) %}
+  channel {{ channel.name }} {
+    {{ bind_config_block(channel | dict2items | rejectattr("key", "equalto", "name")) | indent(4) }}
+  };
+{% endfor %}
+
+{% for category in bind_log_categories | default([]) %}
+  category {{ category.category }} {{ bind_config_render_value(category.channels) | indent(2) }};
+{% endfor %}
+};
+
+{% for acl in bind_acls %}
+acl {{ acl.name }} {{ bind_config_render_value(acl.entries) }};
+{% endfor %}
+
+options {
+  {{ bind_config_block(bind_options | dict2items) | indent(2) }}
+};
+
+{% for view in bind_views %}
+view {{ view.name }} {
+  match-clients {{ bind_config_render_value(view.match_clients) | indent(2) }};
+
+{% for zone in view.zones %}
+  zone {{ zone.name }} {
+    {{ bind_config_block(zone | dict2items | rejectattr("key", "equalto", "name")) | indent(4) }}
+  };
+
+{% endfor %}
+};
+
+{% endfor %}
