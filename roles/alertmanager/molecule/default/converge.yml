@@ -1,0 +1,27 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    alertmanager_config:
+      global:
+        resolve_timeout: 5m
+        smtp_smarthost: 'smtp.example.com:25'
+        smtp_from: 'alertmanager@example.com'
+
+      route:
+        group_by:
+          - instace
+          - severity
+        group_wait: 30s
+        group_interval: 5m
+        repeat_interval: 3h
+        receiver: team-1
+
+      receivers:
+        - name: team-1
+          email_configs:
+            - to: 'admin@example.com'
+
+  roles:
+    - dannixon.alertmanager

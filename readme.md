@@ -2,6 +2,7 @@
 
 A collection of service deployment and configuration roles.
 
+- [![dannixon.services.alertmanager](https://github.com/DanNixon/ansible-services/actions/workflows/alertmanager.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/alertmanager.yml)
 - [![dannixon.services.traefik](https://github.com/DanNixon/ansible-services/actions/workflows/traefik.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/traefik.yml)
 - [![dannixon.services.git_mirror](https://github.com/DanNixon/ansible-services/actions/workflows/git_mirror.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/git_mirror.yml)
 - [![dannixon.services.dapnetgateway](https://github.com/DanNixon/ansible-services/actions/workflows/dapnetgateway.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/dapnetgateway.yml)

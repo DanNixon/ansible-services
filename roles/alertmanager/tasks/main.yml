@@ -1,0 +1,24 @@
+---
+- name: Ensure package is installed
+  become: true
+  package:
+    name: alertmanager
+    state: present
+
+- name: Ensure configuration is present
+  become: true
+  template:
+    src: alertmanager.yml
+    dest: /etc/alertmanager
+    mode: "u=r,g=r,o=r"
+  notify:
+    - Restart Alertmanager
+
+- name: Ensure service is enabled and running
+  become: true
+  service:
+    name: alertmanager
+    enabled: true
+    state: started
+  tags:
+    - molecule-notest
