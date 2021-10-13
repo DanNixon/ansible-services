@@ -1,0 +1,11 @@
+{{ ansible_managed | comment }}
+
+[Unit]
+Description=Import Octopus Energy data into InfluxDB
+
+[Timer]
+OnCalendar={{ octopusenergy_influxdb_time_period }}
+Persistent=true
+
+[Install]
+WantedBy=timers.target

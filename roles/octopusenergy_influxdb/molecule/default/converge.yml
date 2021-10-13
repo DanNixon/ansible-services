@@ -1,0 +1,26 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    octopusenergy_influxdb_config:
+      octopusenergy:
+        token: nope
+
+      influxdb:
+        url: http://localhost:8086
+        org: Utility
+        database: octopusenergy
+        token: nope
+
+      electricity:
+        mpan: nope
+        serial: nope
+
+      gas:
+        mpan: nope
+        serial: nope
+        type: smets1
+
+  roles:
+    - dannixon.octopusenergy_influxdb
