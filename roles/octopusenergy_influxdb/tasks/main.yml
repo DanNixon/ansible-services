@@ -58,6 +58,5 @@
   systemd:
     name: octopusenergy-influxdb.timer
     enabled: true
-    state: started
   tags:
     - molecule-notest
