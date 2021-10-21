@@ -9,4 +9,4 @@
       cert: /opt/cert.pem
 
   roles:
-    - omada_controller
+    - dannixon.omada_controller

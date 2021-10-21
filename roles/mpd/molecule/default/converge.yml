@@ -11,4 +11,4 @@
         name: local
 
   roles:
-    - mpd
+    - dannixon.mpd

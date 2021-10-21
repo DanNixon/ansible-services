@@ -13,4 +13,4 @@
         Port: 43434
 
   roles:
-    - dapnetgateway
+    - dannixon.dapnetgateway

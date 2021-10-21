@@ -18,4 +18,4 @@
           - 2
 
   roles:
-    - dmrgateway
+    - dannixon.dmrgateway

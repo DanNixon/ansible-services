@@ -31,4 +31,4 @@
               pattern: "[%-5p %c] %m\n"
 
   roles:
-    - kea
+    - dannixon.kea
