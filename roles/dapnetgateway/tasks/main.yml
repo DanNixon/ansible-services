@@ -2,7 +2,7 @@
 - name: Ensure DAPNETGateway is installed
   become: true
   become_user: aur_builder
-  ansible.legacy.aur:
+  kewlfft.aur.aur:
     name: dapnetgateway-git
     state: "{{ dapnetgateway_package }}"
 

@@ -2,7 +2,7 @@
 - name: Ensure DMRGateway is installed
   become: true
   become_user: aur_builder
-  ansible.legacy.aur:
+  kewlfft.aur.aur:
     name: dmrgateway-git
     state: "{{ dmrgateway_package }}"
 
