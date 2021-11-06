@@ -15,6 +15,8 @@ Installs and configures [Prometheus](https://prometheus.io/).
   become: true
 
   vars:
+    prometheus_args: "--storage.tsdb.retention.size=100GB"
+
     prometheus_config:
       global:
         scrape_interval: 15s

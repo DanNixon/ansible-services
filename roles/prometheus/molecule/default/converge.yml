@@ -3,6 +3,8 @@
   hosts: all
 
   vars:
+    prometheus_args: "--storage.tsdb.retention.size=100GB"
+
     prometheus_config:
       global:
         scrape_interval: 15s

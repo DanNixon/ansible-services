@@ -1,2 +1,3 @@
 ---
+prometheus_args: ""
 prometheus_config: {}
