@@ -1,0 +1,20 @@
+---
+- name: Build executable
+  become: true
+  ansible.builtin.command:
+    chdir: /var/go-neb
+    cmd: go build -o /usr/bin/go-neb .
+  changed_when: true
+
+- name: Reload systemd daemon
+  become: true
+  systemd:
+    daemon_reload: true
+  when: molecule_yml is not defined
+
+- name: Restart Go-NEB
+  become: true
+  service:
+    name: go-neb.service
+    state: restarted
+  when: molecule_yml is not defined

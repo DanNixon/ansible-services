@@ -1,0 +1,29 @@
+{{ ansible_managed | comment }}
+
+[Unit]
+Description=Go-NEB Matrix bot
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+User=go-neb
+Group=go-neb
+Restart=on-failure
+EnvironmentFile=-/etc/conf.d/go-neb
+ExecStart=/usr/bin/go-neb
+NoNewPrivileges=true
+ProtectHome=true
+ProtectSystem=full
+ProtectHostname=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+LockPersonality=true
+RestrictRealtime=yes
+RestrictNamespaces=yes
+MemoryDenyWriteExecute=yes
+PrivateDevices=yes
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target

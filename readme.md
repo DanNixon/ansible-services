@@ -22,3 +22,4 @@ A collection of service deployment and configuration roles.
 - [![dannixon.services.mmdvmhost](https://github.com/DanNixon/ansible-services/actions/workflows/mmdvmhost.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/mmdvmhost.yml)
 - [![dannixon.services.prometheus_node_exporter](https://github.com/DanNixon/ansible-services/actions/workflows/prometheus_node_exporter.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/prometheus_node_exporter.yml)
 - [![dannixon.services.omada_controller](https://github.com/DanNixon/ansible-services/actions/workflows/omada_controller.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/omada_controller.yml)
+- [![dannixon.services.go_neb](https://github.com/DanNixon/ansible-services/actions/workflows/go_neb.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/go_neb.yml)

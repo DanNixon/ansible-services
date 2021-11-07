@@ -1,0 +1,4 @@
+---
+{{ ansible_managed | comment }}
+
+{{ go_neb_config | to_nice_yaml }}
