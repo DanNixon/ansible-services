@@ -72,8 +72,9 @@
 
 - name: Ensure service is enabled and running
   become: true
-  systemd:
+  service:
     name: go-neb.service
     enabled: true
+    state: started
   tags:
     - molecule-notest

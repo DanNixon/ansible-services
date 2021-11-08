@@ -20,6 +20,7 @@
     - Restart Prometheus
 
 - name: Ensure service is enabled and running
+  become: true
   service:
     name: prometheus
     enabled: true
