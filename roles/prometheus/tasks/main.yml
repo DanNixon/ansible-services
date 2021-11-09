@@ -5,17 +5,32 @@
     name: prometheus
     state: present
 
+- name: Ensure rules are present
+  become: true
+  template:
+    src: rules.yml
+    dest: /etc/prometheus
+    mode: "u=r,g=r,o=r"
+    validate: promtool check rules %s
+  notify:
+    - Restart Prometheus
+
 - name: Ensure configuration is present
   become: true
   template:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
+    src: prometheus.yml
+    dest: /etc/prometheus
     mode: "u=r,g=r,o=r"
-  loop:
-    - src: prometheus.yml
-      dest: /etc/prometheus
-    - src: prometheus
-      dest: /etc/conf.d
+    validate: promtool check config %s
+  notify:
+    - Restart Prometheus
+
+- name: Ensure environment configuration is present
+  become: true
+  template:
+    src: prometheus
+    dest: /etc/conf.d
+    mode: "u=r,g=r,o=r"
   notify:
     - Restart Prometheus
 

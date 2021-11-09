@@ -21,6 +21,12 @@ Installs and configures [Prometheus](https://prometheus.io/).
       global:
         scrape_interval: 15s
 
+    prometheus_rule_groups:
+      - name: example
+        rules:
+          - record: job:http_inprogress_requests:sum
+            expr: sum by (job) (http_inprogress_requests)
+
   roles:
     - dannixon.services.prometheus
 ```
