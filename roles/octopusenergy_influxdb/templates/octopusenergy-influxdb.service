@@ -1,9 +1,0 @@
-{{ ansible_managed | comment }}
-
-[Unit]
-Description=Import Octopus Energy data into InfluxDB
-
-[Service]
-Type=oneshot
-User=octopusenergy-influxdb
-ExecStart=/usr/bin/octopusenergy-influxdb

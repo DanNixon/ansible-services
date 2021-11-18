@@ -1,3 +1,0 @@
-{{ ansible_managed | comment }}
-
-{{ octopusenergy_influxdb_config | to_nice_yaml }}

@@ -1,7 +1,0 @@
----
-octopusenergy_influxdb_repo: https://github.com/dannixon/octopusenergy-influxdb
-octopusenergy_influxdb_revision: custom
-
-octopusenergy_influxdb_time_period: "02:00:00"
-
-octopusenergy_influxdb_config: {}
