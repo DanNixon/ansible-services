@@ -1,0 +1,19 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    borg_borgmatic_config:
+      location:
+        source_directories:
+          - /some/data
+          - /some/more/data
+        repositories:
+          - somewhere
+      storage:
+        encryption_passcommand: pass offsite_backup_passphrase
+      retention:
+        keep_within: 6m
+
+  roles:
+    - dannixon.borg

@@ -4,6 +4,7 @@ A collection of service deployment and configuration roles.
 
 - [![dannixon.services.alertmanager](https://github.com/DanNixon/ansible-services/actions/workflows/alertmanager.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/alertmanager.yml)
 - [![dannixon.services.bind](https://github.com/DanNixon/ansible-services/actions/workflows/bind.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/bind.yml)
+- [![dannixon.services.borg](https://github.com/DanNixon/ansible-services/actions/workflows/borg.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/borg.yml)
 - [![dannixon.services.dapnetgateway](https://github.com/DanNixon/ansible-services/actions/workflows/dapnetgateway.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/dapnetgateway.yml)
 - [![dannixon.services.dmrgateway](https://github.com/DanNixon/ansible-services/actions/workflows/dmrgateway.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/dmrgateway.yml)
 - [![dannixon.services.dnscrypt_proxy](https://github.com/DanNixon/ansible-services/actions/workflows/dnscrypt_proxy.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/dnscrypt_proxy.yml)

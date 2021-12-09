@@ -1,0 +1,3 @@
+---
+borg_borgmatic_user: "{{ ansible_user_id }}"
+borg_borgmatic_config: {}
