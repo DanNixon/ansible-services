@@ -10,6 +10,11 @@ Installs and configures backups with [Borg](https://www.borgbackup.org/) and [Bo
 
 `borg_borgmatic_config`: the Borgmatic configuration as per [the documentation](https://torsion.org/borgmatic/docs/how-to/set-up-backups/#configuration).
 
+`borg_borgmatic_enable_scheduled_backups`: controls if automatic backups should be enabled (defaults to `false`).
+
+`borg_borgmatic_schedule`: sets the schedule for automatic backups (defaults to `daily`).
+See `man 7 systemd.time` for valid values.
+
 ## Example Playbook
 
 ```yaml

@@ -1,0 +1,40 @@
+{{ ansible_managed | comment }}
+
+[Unit]
+Description=Borgmatic backup
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+Restart=no
+LogRateLimitIntervalSec=0
+User={{ borg_borgmatic_user }}
+ExecStart={% if borg_borgmatic_user == "root" %}systemd-inhibit --who="Borgmatic" --why="Scheduled backup" {% endif %}borgmatic --verbosity -1 --syslog-verbosity 2
+
+LockPersonality=true
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+PrivateDevices=yes
+PrivateTmp=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallErrorNumber=EPERM
+ProtectSystem=full
+CapabilityBoundingSet=CAP_DAC_READ_SEARCH CAP_NET_RAW
+
+Nice=19
+CPUSchedulingPolicy=batch
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+IOWeight=100

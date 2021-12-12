@@ -1,3 +1,6 @@
 ---
 borg_borgmatic_user: "{{ ansible_user_id }}"
 borg_borgmatic_config: {}
+
+borg_borgmatic_enable_scheduled_backups: false
+borg_borgmatic_schedule: daily

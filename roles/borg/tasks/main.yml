@@ -12,4 +12,25 @@
     mode: "u=r,g=r,o="
     owner: "{{ borg_borgmatic_user }}"
 
-# TODO: automation
+- name: Ensure systemd units are present
+  become: true
+  template:
+    src: "{{ item }}"
+    dest: "/usr/lib/systemd/system/"
+    mode: "u=r,g=r,o=r"
+  loop:
+    - borgmatic.service
+    - borgmatic.timer
+  notify: Reload systemd
+
+- name: Flush handlers
+  meta: flush_handlers
+
+- name: Ensure scheduled backups are configured
+  become: true
+  systemd:
+    name: borgmatic.timer
+    enabled: "{{ borg_borgmatic_enable_scheduled_backups }}"
+    state: "{{ 'started' if borg_borgmatic_enable_scheduled_backups else 'stopped' }}"
+  tags:
+    - molecule-notest
