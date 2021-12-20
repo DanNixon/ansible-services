@@ -13,7 +13,7 @@ User={{ borg_borgmatic_user }}
 ExecStart={% if borg_borgmatic_user == "root" %}systemd-inhibit --who="Borgmatic" --why="Scheduled backup" {% endif %}borgmatic --verbosity -1 --syslog-verbosity 2
 
 LockPersonality=true
-MemoryDenyWriteExecute=yes
+MemoryDenyWriteExecute=no
 NoNewPrivileges=yes
 PrivateDevices=yes
 PrivateTmp=yes
