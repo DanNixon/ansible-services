@@ -1,4 +1,0 @@
----
-{{ ansible_managed | comment }}
-
-{{ { 'groups': prometheus_rule_groups } | to_nice_yaml }}

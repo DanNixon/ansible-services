@@ -1,1 +1,0 @@
-PROMETHEUS_ARGS="{{ prometheus_args }}"

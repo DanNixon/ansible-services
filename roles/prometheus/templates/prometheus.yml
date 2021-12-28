@@ -1,7 +1,0 @@
----
-{{ ansible_managed | comment }}
-
-{{ prometheus_config | to_nice_yaml }}
-
-rule_files:
-  - /etc/prometheus/rules.yml
