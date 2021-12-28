@@ -14,7 +14,6 @@ A collection of service deployment and configuration roles.
 - [![dannixon.services.kea](https://github.com/DanNixon/ansible-services/actions/workflows/kea.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/kea.yml)
 - [![dannixon.services.mmdvmhost](https://github.com/DanNixon/ansible-services/actions/workflows/mmdvmhost.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/mmdvmhost.yml)
 - [![dannixon.services.mpd](https://github.com/DanNixon/ansible-services/actions/workflows/mpd.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/mpd.yml)
-- [![dannixon.services.omada_controller](https://github.com/DanNixon/ansible-services/actions/workflows/omada_controller.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/omada_controller.yml)
 - [![dannixon.services.prometheus_node_exporter](https://github.com/DanNixon/ansible-services/actions/workflows/prometheus_node_exporter.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/prometheus_node_exporter.yml)
 - [![dannixon.services.sshd](https://github.com/DanNixon/ansible-services/actions/workflows/sshd.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/sshd.yml)
 - [![dannixon.services.syncthing](https://github.com/DanNixon/ansible-services/actions/workflows/syncthing.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/syncthing.yml)
