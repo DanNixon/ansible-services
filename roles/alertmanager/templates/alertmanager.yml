@@ -1,4 +1,0 @@
----
-{{ ansible_managed | comment }}
-
-{{ alertmanager_config | to_nice_yaml }}

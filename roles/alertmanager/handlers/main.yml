@@ -1,7 +1,0 @@
----
-- name: Restart Alertmanager
-  become: true
-  service:
-    name: alertmanager
-    state: restarted
-  when: molecule_yml is not defined
