@@ -9,7 +9,6 @@ A collection of service deployment and configuration roles.
 - [![dannixon.services.dnscrypt_proxy](https://github.com/DanNixon/ansible-services/actions/workflows/dnscrypt_proxy.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/dnscrypt_proxy.yml)
 - [![dannixon.services.git_mirror](https://github.com/DanNixon/ansible-services/actions/workflows/git_mirror.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/git_mirror.yml)
 - [![dannixon.services.git_server](https://github.com/DanNixon/ansible-services/actions/workflows/git_server.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/git_server.yml)
-- [![dannixon.services.go_neb](https://github.com/DanNixon/ansible-services/actions/workflows/go_neb.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/go_neb.yml)
 - [![dannixon.services.influxdb](https://github.com/DanNixon/ansible-services/actions/workflows/influxdb.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/influxdb.yml)
 - [![dannixon.services.kea](https://github.com/DanNixon/ansible-services/actions/workflows/kea.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/kea.yml)
 - [![dannixon.services.mmdvmhost](https://github.com/DanNixon/ansible-services/actions/workflows/mmdvmhost.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/mmdvmhost.yml)

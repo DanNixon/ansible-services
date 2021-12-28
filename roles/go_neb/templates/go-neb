@@ -1,9 +1,0 @@
-{{ ansible_managed | comment }}
-
-BIND_ADDRESS={{ go_neb_bind_address }}
-BASE_URL={{ go_neb_base_url }}
-
-DATABASE_TYPE={{ go_neb_database_type }}
-DATABASE_URL={{ go_neb_database_url }}
-
-CONFIG_FILE=/etc/go-neb.yml
