@@ -16,25 +16,11 @@
     dest: /etc/named.conf
     mode: "u=r,g=r,o=r"
     validate: named-checkconf %s
-  notify:
-    - Restart Bind
+  notify: Restart Bind
 
-- name: Stop bind before zones and journals are modified
-  become: true
-  service:
-    name: named
-    state: stopped
-  when: bind_update_zones | bool
-  tags:
-    - molecule-notest
-
-- name: Ensure zones are configured
-  include_tasks: zone.yml
-  loop: "{{ bind_zones }}"
-  loop_control:
-    loop_var: zone
-    label: "{{ zone.filename }} for zone {{ zone.origin }}"
-  when: bind_update_zones | bool
+- name: Configure zones
+  include_tasks: zones.yml
+  when: bind_update_zones
 
 - name: Ensure service is enabled and running
   become: true

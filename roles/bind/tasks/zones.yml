@@ -1,0 +1,36 @@
+---
+- name: Stop dynamic zone updates
+  become: true
+  ansible.builtin.command: rndc freeze
+  ignore_errors: true
+  tags:
+    - molecule-notest
+
+- name: Dump journals to zone files and remove journals
+  become: true
+  ansible.builtin.command: rndc sync -clean
+  ignore_errors: true
+  tags:
+    - molecule-notest
+
+- name: Ensure zone files are present and up to date
+  become: true
+  template:
+    src: zone.j2
+    dest: "/var/named/{{ zone.filename }}"
+    owner: named
+    group: named
+    mode: "u=r,g=r,o=r"
+    validate: "named-checkzone -dD {{ zone.origin }} %s"
+  loop: "{{ bind_zones }}"
+  loop_control:
+    loop_var: zone
+    label: "{{ zone.filename }} for zone {{ zone.origin }}"
+  notify: Restart Bind
+
+- name: Restart dynamic zone updates
+  become: true
+  ansible.builtin.command: rndc thaw
+  ignore_errors: true
+  tags:
+    - molecule-notest
