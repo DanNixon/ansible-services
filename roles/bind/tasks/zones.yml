@@ -1,15 +1,22 @@
 ---
+- name: Get service status
+  ansible.builtin.service_facts:
+
+- name: Determine if Bind is running
+  set_fact:
+    bind_is_running: "{{ ansible_facts.services['named.service'].state | d('unknown') == 'running' }}"
+
 - name: Stop dynamic zone updates
   become: true
   ansible.builtin.command: rndc freeze
-  ignore_errors: true
+  when: bind_is_running
   tags:
     - molecule-notest
 
 - name: Dump journals to zone files and remove journals
   become: true
   ansible.builtin.command: rndc sync -clean
-  ignore_errors: true
+  when: bind_is_running
   tags:
     - molecule-notest
 
@@ -31,6 +38,6 @@
 - name: Restart dynamic zone updates
   become: true
   ansible.builtin.command: rndc thaw
-  ignore_errors: true
+  when: bind_is_running
   tags:
     - molecule-notest
