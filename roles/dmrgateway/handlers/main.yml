@@ -1,7 +1,0 @@
----
-- name: Restart DMRGateway
-  become: true
-  service:
-    name: dmrgateway
-    state: restarted
-  when: molecule_yml is not defined

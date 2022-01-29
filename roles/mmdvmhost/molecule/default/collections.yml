@@ -1,4 +1,0 @@
----
-collections:
-  - git+https://github.com/DanNixon/ansible-system.git
-  - kewlfft.aur

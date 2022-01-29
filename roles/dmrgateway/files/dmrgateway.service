@@ -1,9 +1,0 @@
-[Unit]
-Description=DMR network gateway
-After=network.service
-
-[Service]
-ExecStart=/usr/bin/DMRGateway /etc/dmrgateway.ini
-
-[Install]
-WantedBy=multi-user.target
