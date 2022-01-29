@@ -1,9 +1,0 @@
-[Unit]
-Description=DAPNET network gateway
-After=network.service
-
-[Service]
-ExecStart=/usr/bin/DAPNETGateway /etc/dapnetgateway.ini
-
-[Install]
-WantedBy=multi-user.target

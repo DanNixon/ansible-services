@@ -4,7 +4,6 @@ A collection of service deployment and configuration roles.
 
 - [![dannixon.services.bind](https://github.com/DanNixon/ansible-services/actions/workflows/bind.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/bind.yml)
 - [![dannixon.services.borg](https://github.com/DanNixon/ansible-services/actions/workflows/borg.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/borg.yml)
-- [![dannixon.services.dapnetgateway](https://github.com/DanNixon/ansible-services/actions/workflows/dapnetgateway.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/dapnetgateway.yml)
 - [![dannixon.services.dnscrypt_proxy](https://github.com/DanNixon/ansible-services/actions/workflows/dnscrypt_proxy.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/dnscrypt_proxy.yml)
 - [![dannixon.services.git_mirror](https://github.com/DanNixon/ansible-services/actions/workflows/git_mirror.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/git_mirror.yml)
 - [![dannixon.services.git_server](https://github.com/DanNixon/ansible-services/actions/workflows/git_server.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/git_server.yml)
