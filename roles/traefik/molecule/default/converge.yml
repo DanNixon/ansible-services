@@ -40,4 +40,4 @@
                     - url: http://srv2.backend.example.com
 
   roles:
-    - dannixon.traefik
+    - dannixon.services.traefik

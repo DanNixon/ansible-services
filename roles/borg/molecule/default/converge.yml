@@ -16,4 +16,4 @@
         keep_within: 6m
 
   roles:
-    - dannixon.borg
+    - dannixon.services.borg

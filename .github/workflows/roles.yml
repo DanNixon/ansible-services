@@ -1,0 +1,50 @@
+---
+name: Role Testing
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 0 2,16 * *"
+
+jobs:
+  molecule:
+    name: Molecule
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        role:
+          - bind
+          - borg
+          - dnscrypt_proxy
+          - git_mirror
+          - git_server
+          - influxdb
+          - kea
+          - mpd
+          - prometheus_node_exporter
+          - sshd
+          - syncthing
+          - traefik
+        scenario:
+          - default
+
+    env:
+      PY_COLORS: 1
+      ANSIBLE_FORCE_COLOR: 1
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - uses: dannixon/ansible-testing/actions/test_role@main
+        with:
+          role: "${{ matrix.role }}"
+          scenario: "${{ matrix.scenario }}"

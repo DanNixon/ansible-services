@@ -10,4 +10,4 @@
             url: https://github.com/DanNixon/ansible-services.git
 
   roles:
-    - dannixon.git_mirror
+    - dannixon.services.git_mirror

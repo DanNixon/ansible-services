@@ -3,4 +3,4 @@
   hosts: all
 
   roles:
-    - dannixon.syncthing
+    - dannixon.services.syncthing

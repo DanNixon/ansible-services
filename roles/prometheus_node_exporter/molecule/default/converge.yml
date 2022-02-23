@@ -3,4 +3,4 @@
   hosts: all
 
   roles:
-    - dannixon.prometheus_node_exporter
+    - dannixon.services.prometheus_node_exporter
