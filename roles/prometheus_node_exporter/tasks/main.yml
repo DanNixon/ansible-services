@@ -5,10 +5,15 @@
     name: prometheus-node-exporter
     state: present
 
+- name: Set service name
+  ansible.builtin.set_fact:
+    prometheus_node_exporter_service_name: node-exporter
+  when: ansible_distribution == "Alpine"
+
 - name: Ensure service is enabled and running
   become: true
   service:
-    name: prometheus-node-exporter.service
+    name: "{{ prometheus_node_exporter_service_name }}"
     enabled: true
     state: started
   tags:
