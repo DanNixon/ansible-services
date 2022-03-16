@@ -1,13 +1,13 @@
 ---
 - name: Perform platform specific tasks
-  include_tasks: "{{ item }}"
+  ansible.builtin.include_tasks: "{{ item }}"
   with_first_found:
     - files: "install_{{ ansible_distribution }}.yml"
       skip: true
 
 - name: Ensure SSH password authentication is disabled
   become: true
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/ssh/sshd_config
     line: PasswordAuthentication no
     state: present
@@ -16,7 +16,7 @@
 
 - name: Ensure sshd is enabled and running
   become: true
-  service:
+  ansible.builtin.service:
     name: sshd
     state: started
     enabled: true

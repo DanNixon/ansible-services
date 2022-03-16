@@ -1,6 +1,6 @@
 ---
 - name: Ensure SSH server is installed
   become: true
-  package:
+  ansible.builtin.package:
     name: openssh
     state: present

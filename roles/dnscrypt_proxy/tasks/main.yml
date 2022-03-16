@@ -1,13 +1,13 @@
 ---
 - name: Ensure dnscrypt-proxy is installed
   become: true
-  package:
+  ansible.builtin.package:
     name: dnscrypt-proxy
     state: present
 
 - name: Ensure dnscrypt-proxy configuration is present
   become: true
-  template:
+  ansible.builtin.template:
     src: "{{ item }}.j2"
     dest: "/etc/dnscrypt-proxy/{{ item }}"
     mode: "u=rw,g=r,o=r"
@@ -20,7 +20,7 @@
 
 - name: Ensure the dnscrypt-proxy service is enabled and running
   become: true
-  service:
+  ansible.builtin.service:
     name: dnscrypt-proxy
     state: started
     enabled: true
@@ -29,7 +29,7 @@
 
 - name: Ensure system resolver is configured
   become: true
-  copy:
+  ansible.builtin.copy:
     src: resolv.conf
     dest: /etc/resolv.conf
     mode: "u=rw,g=r,o=r"
@@ -39,7 +39,7 @@
 
 - name: Ensure helper scripts are present
   become: true
-  copy:
+  ansible.builtin.copy:
     src: dnscrypt-proxy-blocked-count
     dest: /usr/sbin/
     mode: "u=rx,g=rx,o=rx"

@@ -1,13 +1,13 @@
 ---
 - name: Ensure package is installed
   become: true
-  package:
+  ansible.builtin.package:
     name: traefik
     state: present
 
 - name: Ensure Traefik configuration is present
   become: true
-  template:
+  ansible.builtin.template:
     src: traefik.yml
     dest: /etc/traefik
     mode: "u=r,g=r,o=r"
@@ -16,14 +16,14 @@
 
 - name: Ensure Traefik dynamic configuration directory is present
   become: true
-  file:
+  ansible.builtin.file:
     path: /etc/traefik/dynamic
     state: directory
     mode: "u=rwx,g=rx,o=rx"
 
 - name: Ensure Traefik dynamic configurations are present
   become: true
-  template:
+  ansible.builtin.template:
     src: traefik_dynamic.yml
     dest: "/etc/traefik/dynamic/{{ item.name }}.yml"
     mode: "u=r,g=r,o=r"
@@ -32,7 +32,7 @@
     label: "{{ item.name }}"
 
 - name: Ensure service is enabled and running
-  service:
+  ansible.builtin.service:
     name: traefik
     enabled: true
     state: started

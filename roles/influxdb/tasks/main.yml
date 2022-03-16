@@ -1,12 +1,12 @@
 ---
 - name: Ensure package is installed
   become: true
-  package:
+  ansible.builtin.package:
     name: influxdb
     state: present
 
 - name: Ensure service is enabled and running
-  service:
+  ansible.builtin.service:
     name: influxdb
     enabled: true
     state: started

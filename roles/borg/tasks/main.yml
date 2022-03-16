@@ -1,12 +1,12 @@
 ---
 - name: Platform specific installation
-  include_tasks: "{{ item }}"
+  ansible.builtin.include_tasks: "{{ item }}"
   with_first_found:
     - files: "install_{{ ansible_distribution }}.yml"
 
 - name: Ensure Borgmatic configuration is present
   become: true
-  template:
+  ansible.builtin.template:
     src: config.yaml
     dest: /etc/borgmatic/
     mode: "u=r,g=r,o="
@@ -14,7 +14,7 @@
 
 - name: Ensure systemd units are present
   become: true
-  template:
+  ansible.builtin.template:
     src: "{{ item }}"
     dest: "/usr/lib/systemd/system/"
     mode: "u=r,g=r,o=r"
@@ -24,11 +24,11 @@
   notify: Reload systemd
 
 - name: Flush handlers
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
 
 - name: Ensure scheduled backups are configured
   become: true
-  systemd:
+  ansible.builtin.systemd:
     name: borgmatic.timer
     enabled: "{{ borg_borgmatic_enable_scheduled_backups }}"
     state: "{{ 'started' if borg_borgmatic_enable_scheduled_backups else 'stopped' }}"

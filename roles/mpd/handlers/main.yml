@@ -1,6 +1,6 @@
 ---
 - name: Restart MPD
-  systemd:
+  ansible.builtin.systemd:
     name: mpd
     scope: "{{ mpd_service_scope }}"
     state: restarted

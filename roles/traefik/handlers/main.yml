@@ -1,7 +1,7 @@
 ---
 - name: Restart Traefik
   become: true
-  service:
+  ansible.builtin.service:
     name: traefik
     state: restarted
   when: molecule_yml is not defined

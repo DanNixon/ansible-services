@@ -1,7 +1,7 @@
 ---
 - name: Ensure package is installed
   become: true
-  package:
+  ansible.builtin.package:
     name: prometheus-node-exporter
     state: present
 
@@ -12,7 +12,7 @@
 
 - name: Ensure service is enabled and running
   become: true
-  service:
+  ansible.builtin.service:
     name: "{{ prometheus_node_exporter_service_name }}"
     enabled: true
     state: started

@@ -1,19 +1,19 @@
 ---
 - name: Check if an rndc key exists
-  stat:
+  ansible.builtin.stat:
     path: "{{ bind_rndc_key_path }}"
   register: rndc_key
 
 - name: Generate rndc key
   become: true
-  command: rndc-confgen -a
+  ansible.builtin.command: rndc-confgen -a
   notify:
     - Restart Bind
   when: not rndc_key.stat.exists
 
 - name: Ensure named user has ownership of rndc key
   become: true
-  file:
+  ansible.builtin.file:
     path: "{{ bind_rndc_key_path }}"
     owner: named
     group: named

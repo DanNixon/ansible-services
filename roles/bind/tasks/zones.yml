@@ -3,7 +3,7 @@
   ansible.builtin.service_facts:
 
 - name: Determine if Bind is running
-  set_fact:
+  ansible.builtin.set_fact:
     bind_is_running: "{{ ansible_facts.services['named.service'].state | d('unknown') == 'running' }}"
 
 - name: Stop dynamic zone updates
@@ -22,7 +22,7 @@
 
 - name: Ensure zone files are present and up to date
   become: true
-  template:
+  ansible.builtin.template:
     src: zone.j2
     dest: "/var/named/{{ zone.filename }}"
     owner: named

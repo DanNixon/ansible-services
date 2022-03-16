@@ -1,7 +1,7 @@
 ---
 - name: Remove existing IPv4 leases
   become: true
-  file:
+  ansible.builtin.file:
     path: /var/lib/kea/kea-leases4.csv
     state: absent
   notify:
@@ -9,7 +9,7 @@
 
 - name: Remove existing IPv6 leases
   become: true
-  file:
+  ansible.builtin.file:
     path: /var/lib/kea/kea-leases6.csv
     state: absent
   notify:

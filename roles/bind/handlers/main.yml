@@ -1,7 +1,7 @@
 ---
 - name: Restart Bind
   become: true
-  service:
+  ansible.builtin.service:
     name: named.service
     state: restarted
   when: molecule_yml is not defined

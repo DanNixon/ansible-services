@@ -1,7 +1,7 @@
 ---
 - name: "Ensure {{ service }} configuration is present"
   become: true
-  template:
+  ansible.builtin.template:
     src: kea.conf.j2
     dest: "/etc/kea/{{ service }}.conf"
     mode: "u=r,g=r,o=r"
@@ -12,7 +12,7 @@
 
 - name: "Ensure {{ service }} is configured"
   become: true
-  service:
+  ansible.builtin.service:
     name: "{{ service }}.service"
     enabled: "{{ enabled }}"
     state: "{{ 'started' if enabled else 'stopped' }}"
