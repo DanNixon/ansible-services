@@ -1,0 +1,4 @@
+---
+{{ ansible_managed | comment }}
+
+{{ grafana_agent_config | to_nice_yaml }}

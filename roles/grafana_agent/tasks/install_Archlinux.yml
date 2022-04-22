@@ -1,0 +1,6 @@
+---
+- name: Ensure package is installed
+  become: true
+  ansible.builtin.package:
+    name: grafana-agent
+    state: present

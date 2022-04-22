@@ -1,0 +1,7 @@
+---
+- name: Restart Grafana Agent
+  become: true
+  ansible.builtin.service:
+    name: grafana-agent
+    state: restarted
+  when: molecule_yml is not defined

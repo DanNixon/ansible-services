@@ -21,6 +21,7 @@ jobs:
           - dnscrypt_proxy
           - git_mirror
           - git_server
+          - grafana_agent
           - influxdb
           - kea
           - mpd

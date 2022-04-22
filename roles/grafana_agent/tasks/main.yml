@@ -1,0 +1,22 @@
+---
+- name: Perform platform specific installation
+  ansible.builtin.include_tasks: "{{ item }}"
+  with_first_found:
+    - files: "install_{{ ansible_distribution }}.yml"
+
+- name: Ensure configuration is present
+  become: true
+  ansible.builtin.template:
+    src: grafana-agent.yaml
+    dest: /etc/
+    mode: "u=rw,g=r,o=r"
+  notify: Restart Grafana Agent
+
+- name: Ensure service is enabled and running
+  become: true
+  ansible.builtin.service:
+    name: grafana-agent
+    state: started
+    enabled: true
+  tags:
+    - molecule-notest

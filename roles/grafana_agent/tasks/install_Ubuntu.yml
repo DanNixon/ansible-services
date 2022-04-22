@@ -1,0 +1,6 @@
+---
+- name: Ensure package is installed
+  become: true
+  ansible.builtin.apt:
+    deb: "{{ grafana_agent_deb_url }}"
+    state: present
