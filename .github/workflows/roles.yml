@@ -27,7 +27,6 @@ jobs:
           - prometheus_node_exporter
           - sshd
           - syncthing
-          - traefik
         scenario:
           - default
 
