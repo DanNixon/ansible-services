@@ -22,7 +22,6 @@ jobs:
           - git_mirror
           - git_server
           - grafana_agent
-          - influxdb
           - kea
           - mpd
           - prometheus_node_exporter
