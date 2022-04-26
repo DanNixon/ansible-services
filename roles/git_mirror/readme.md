@@ -1,7 +1,5 @@
 # `dannixon.services.git_mirror`
 
-[![dannixon.services.git_mirror](https://github.com/DanNixon/ansible-services/actions/workflows/git_mirror.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/git_mirror.yml)
-
 Configures unattended, periodic mirroring of Git repositories via a simple shell script and a systemd timer.
 
 ## Role Variables

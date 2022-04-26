@@ -1,7 +1,5 @@
 # `dannixon.services.borg`
 
-[![dannixon.services.borg](https://github.com/DanNixon/ansible-services/actions/workflows/borg.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/borg.yml)
-
 Installs and configures backups with [Borg](https://www.borgbackup.org/) and [Borgmatic](https://torsion.org/borgmatic/).
 
 ## Role Variables

@@ -1,7 +1,5 @@
 # `dannixon.services.traefik`
 
-[![dannixon.services.traefik](https://github.com/DanNixon/ansible-services/actions/workflows/traefik.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/traefik.yml)
-
 Installs and configures [Traefik](https://traefik.io/).
 
 ## Role Variables

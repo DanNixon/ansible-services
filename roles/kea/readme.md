@@ -1,7 +1,5 @@
 # `dannixon.services.kea`
 
-[![dannixon.services.kea](https://github.com/DanNixon/ansible-services/actions/workflows/kea.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/kea.yml)
-
 Installs and configures [Kea](https://www.isc.org/kea/) DHCP server.
 
 ## Role Variables

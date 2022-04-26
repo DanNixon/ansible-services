@@ -1,7 +1,5 @@
 # `dannixon.services.bind`
 
-[![dannixon.services.bind](https://github.com/DanNixon/ansible-services/actions/workflows/bind.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/bind.yml)
-
 Installs and configures ISC [BIND](https://www.isc.org/bind/) DNS server.
 
 ## Role Variables

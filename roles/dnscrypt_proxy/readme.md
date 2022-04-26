@@ -1,7 +1,5 @@
 # `dannixon.services.dnscrypt_proxy`
 
-[![dannixon.services.dnscrypt_proxy](https://github.com/DanNixon/ansible-services/actions/workflows/dnscrypt_proxy.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/dnscrypt_proxy.yml)
-
 Installs and configures [dnscrypt-proxy](https://github.com/DNSCrypt/dnscrypt-proxy).
 
 ## Role Variables

@@ -1,7 +1,5 @@
 # `dannixon.services.mpd`
 
-[![dannixon.services.mpd](https://github.com/DanNixon/ansible-services/actions/workflows/mpd.yml/badge.svg?branch=main)](https://github.com/DanNixon/ansible-services/actions/workflows/mpd.yml)
-
 Installs and configures [Music Player Daemon (MPD)](https://www.musicpd.org/).
 
 ## Role Variables
