@@ -1,10 +1,10 @@
 {{ ansible_managed | comment }}
 
 [Unit]
-Description=Update Git mirrors
+Description=Update Git mirrors using git-collage
 
 [Timer]
-OnCalendar={{ git_mirror_update_interval }}
+OnCalendar={{ git_collage_update_interval }}
 Persistent=true
 
 [Install]

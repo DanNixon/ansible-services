@@ -1,0 +1,21 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    git_collage_config: |
+      [providers.source]
+      type = 'static_list'
+
+      [[providers.source.repos]]
+      git_url = 'https://github.com/dannixon/dotfiles'
+      path = 'dotfiles'
+      [[providers.source.repos.ref_match.rules]]
+      type = 'exact'
+      expr = 'refs/heads/main'
+
+      [[providers.source.repos]]
+      git_url = 'https://github.com/dannixon/ansible-services'
+
+  roles:
+    - dannixon.services.git_collage

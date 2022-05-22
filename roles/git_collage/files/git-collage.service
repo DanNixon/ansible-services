@@ -1,0 +1,8 @@
+[Unit]
+Description=Update Git mirrors using git-collage
+
+[Service]
+Type=oneshot
+User=git-collage
+Group=git-collage
+ExecStart=/usr/bin/git-collage -c /etc/git-collage.toml mirror

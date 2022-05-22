@@ -19,7 +19,7 @@ jobs:
           - bind
           - borg
           - dnscrypt_proxy
-          - git_mirror
+          - git_collage
           - git_server
           - grafana_agent
           - kea
