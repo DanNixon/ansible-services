@@ -17,7 +17,7 @@
 - name: Ensure git-collage binary is present
   become: true
   ansible.builtin.get_url:
-    url: https://github.com/DanNixon/git-collage/releases/download/v0.3.0/git-collage
+    url: https://github.com/DanNixon/git-collage/releases/download/v0.4.0/git-collage
     dest: /usr/bin/git-collage
     mode: "u=rx,g=rx,o=rx"
 
