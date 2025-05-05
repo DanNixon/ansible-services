@@ -16,17 +16,11 @@ jobs:
       fail-fast: false
       matrix:
         role:
-          - bind
           - borg
-          - dnscrypt_proxy
           - git_collage
           - git_server
           - grafana_agent
-          - kea
-          - mpd
-          - prometheus_node_exporter
           - sshd
-          - syncthing
         scenario:
           - default
 

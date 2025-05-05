@@ -1,7 +1,0 @@
----
-- name: Restart dnscrypt-proxy
-  become: true
-  ansible.builtin.service:
-    name: dnscrypt-proxy
-    state: restarted
-  when: molecule_yml is not defined
